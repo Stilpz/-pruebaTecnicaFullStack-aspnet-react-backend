@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "NjgDUQmnIEtYtyZtu5iK0TUWmqVsf2cqYBPhJxSyLXU=",
+  "Source": "apiCargueClientes",
+  "BasePath": "_content/apiCargueClientes",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
