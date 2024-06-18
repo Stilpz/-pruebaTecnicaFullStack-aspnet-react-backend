@@ -83,6 +83,7 @@ json
       Formato del Archivo CSV: El archivo debe contener las columnas: nombre, apellidos, edad, email, telefono, direccion, documento, tipo_documento.
       Respuesta Exitosa (200 OK): Retorna una lista de registros de clientes creados a partir del archivo CSV en formato JSON.
       Respuesta de Error: Retorna un mensaje de error con el código de estado correspondiente si hay problemas al procesar el archivo CSV.
+      El archivo debe contener los encabezados de nombre,apellidos,edad,email,telefono,direccion,documento,tipo_documento
 
 ## Buenas Prácticas y Patrones de Diseño Implementados
 
@@ -98,21 +99,106 @@ json
 
 Para ejecutar la aplicación, sigue estos pasos:
 
-    Backend (ASP.NET Core):
+## Backend (ASP.NET Core):
         Asegúrate de tener instalado Visual Studio con las cargas de trabajo de desarrollo de ASP.NET Core.
         Abre la solución en Visual Studio.
         Configura la cadena de conexión a la base de datos SQL Server en appsettings.json.
         Compila y ejecuta el proyecto.
 
-    Frontend (React):
-        Asegúrate de tener Node.js y npm instalados en tu sistema.
-        Abre una terminal y navega hasta la carpeta del proyecto de frontend.
-        Instala las dependencias usando npm install.
-        Inicia la aplicación usando npm start.
+        ### Consideración para cambiar de consumo de API a WEB:
 
-    Base de Datos:
-        Asegúrate de tener un servidor SQL Server instalado y disponible.
-        Ejecuta las migraciones para crear la estructura de la base de datos utilizando Entity Framework Core.
+        El proyecto se carga para el uso de la API, tanto para su consumo como el cargue masivo de cliente. Esto se hace desde el archivo \Properties\launchSettings.json.
+        Allí debe cambiarse el valor del parámetro "launchUrl": "swagger", a "launchUrl": "api/clientes", si esto no se realiza, no se podrán visualizar los registros.
+        Inicialmente se ve así el código:
+        json
+        ```
+        {
+          "$schema": "http://json.schemastore.org/launchsettings.json",
+          "iisSettings": {
+            "windowsAuthentication": false,
+            "anonymousAuthentication": true,
+            "iisExpress": {
+              "applicationUrl": "http://localhost:6991",
+              "sslPort": 44300
+            }
+          },
+          "profiles": {
+            "http": {
+              "commandName": "Project",
+              "dotnetRunMessages": true,
+              "launchBrowser": true,
+              "launchUrl": "swagger", //Cambiar a "launchUrl": "api/clientes"
+              "applicationUrl": "http://localhost:5002",
+              "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+              }
+            },
+            "https": {
+              "commandName": "Project",
+              "dotnetRunMessages": true,
+              "launchBrowser": true,
+              "launchUrl": "swagger", //Cambiar a "launchUrl": "api/clientes"
+              "applicationUrl": "https://localhost:7099;http://localhost:5002",
+              "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+              }
+            },
+            "IIS Express": {
+              "commandName": "IISExpress",
+              "launchBrowser": true,
+              "launchUrl": "swagger", //Cambiar a "launchUrl": "api/clientes"
+              "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+              }
+            }
+          }
+        }
+
+        ```
+
+## Frontend (React):
+    Asegúrate de tener Node.js y npm instalados en tu sistema.
+    Abre una terminal y navega hasta la carpeta del proyecto de frontend.
+    Instala las dependencias usando npm install.
+    Inicia la aplicación usando npm start.
+
+## Base de Datos:
+    Asegúrate de tener un servidor SQL Server instalado y disponible.
+    Ejecuta las migraciones para crear la estructura de la base de datos utilizando Entity Framework Core.
+    De igual manera se debe crear la base de datos helppeople y crear la tabla cliente.
+    El script para crear la tabla es el siguiente:
+        sql
+        ```
+        USE [helppeople]
+        GO
+        
+        /****** Object:  Table [dbo].[cliente]    Script Date: 18/06/2024 3:48:33 p.m. ******/
+        SET ANSI_NULLS ON
+        GO
+        
+        SET QUOTED_IDENTIFIER ON
+        GO
+        
+        CREATE TABLE [dbo].[cliente](
+        	[id] [int] IDENTITY(1,1) NOT NULL,
+        	[nombre] [varchar](50) NOT NULL,
+        	[apellidos] [varchar](50) NOT NULL,
+        	[edad] [int] NOT NULL,
+        	[email] [varchar](30) NOT NULL,
+        	[telefono] [int] NOT NULL,
+        	[direccion] [varchar](50) NOT NULL,
+        	[documento] [int] NOT NULL,
+        	[tipo_documento] [varchar](5) NOT NULL,
+         CONSTRAINT [PK_Table_1] PRIMARY KEY CLUSTERED 
+        (
+        	[id] ASC
+        )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+        ) ON [PRIMARY]
+        GO
+    
+    
+    ```
+
 
 ## Instrucciones para Ejecutar las Pruebas Unitarias
 
