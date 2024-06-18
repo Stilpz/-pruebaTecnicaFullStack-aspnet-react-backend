@@ -3,7 +3,7 @@
 Esta aplicación ha sido desarrollada utilizando ASP.NET Core para el backend, React para el frontend, y SQL Server como base de datos relacional. A continuación se detallan las características y funcionamiento principal de la aplicación.
 Funcionamiento de los Endpoints Principales
 
-# GET /api/clientes
+## GET /api/clientes
     Descripción: Retorna una lista paginada de todos los clientes almacenados en la base de datos.
     Uso: Este endpoint se utiliza para obtener la lista completa de clientes registrados. Los resultados se muestran paginados.
     Parámetros:
@@ -12,14 +12,14 @@ Funcionamiento de los Endpoints Principales
     Respuesta Exitosa (200 OK): Retorna una lista paginada de clientes en formato JSON.
     Respuesta de Error: Retorna un mensaje de error con el código de estado correspondiente en caso de fallo.
 
-# GET /api/clientes/{id}
+## GET /api/clientes/{id}
     Descripción: Retorna un cliente específico según el ID proporcionado.
     Uso: Se utiliza para obtener los detalles de un cliente específico.
     Parámetros: {id} es el identificador único del cliente.
     Respuesta Exitosa (200 OK): Retorna los detalles del cliente solicitado en formato JSON.
     Respuesta de Error: Retorna un mensaje de error con el código de estado correspondiente si el cliente no existe o si hay un problema de servidor.
 
-# POST /api/clientes
+## POST /api/clientes
     Descripción: Crea un nuevo cliente con los datos proporcionados.
     Uso: Se utiliza para registrar un nuevo cliente en la base de datos.
 
@@ -40,7 +40,7 @@ json
     Respuesta Exitosa (201 Created): Retorna los detalles del cliente creado y la URL para acceder a estos detalles.
     Respuesta de Error: Retorna un mensaje de error con el código de estado correspondiente si hay problemas de validación o de servidor.
 
-# PUT /api/clientes/{id}
+## PUT /api/clientes/{id}
 
     Descripción: Actualiza los datos de un cliente existente.
     Uso: Se utiliza para modificar los datos de un cliente específico.
@@ -63,13 +63,13 @@ json
         Respuesta Exitosa (200 OK): Retorna los detalles actualizados del cliente.
         Respuesta de Error: Retorna un mensaje de error con el código de estado correspondiente si el cliente no existe o si hay problemas de validación o de servidor.
 
-  # DELETE /api/clientes/{id}
+  ## DELETE /api/clientes/{id}
       Descripción: Elimina un cliente según el ID proporcionado.
       Uso: Se utiliza para eliminar un cliente específico de la base de datos.
       Respuesta Exitosa (200 OK): Retorna el ID del cliente eliminado.
       Respuesta de Error: Retorna un mensaje de error con el código de estado correspondiente si el cliente no existe o si hay problemas de servidor.
 
-  # GET /api/clientes/search
+  ## GET /api/clientes/search
       Descripción: Busca clientes por nombre y/o correo electrónico.
       Uso: Se utiliza para realizar búsquedas basadas en nombre y/o correo electrónico de los clientes.
       Parámetros Query:
@@ -77,14 +77,14 @@ json
       Respuesta Exitosa (200 OK): Retorna una lista de clientes que coinciden con el término de búsqueda en formato JSON.
       Respuesta de Error: Retorna un mensaje de error con el código de estado correspondiente si hay problemas de servidor.
 
- #  POST /api/clientes/uploadcsv
+ ##  POST /api/clientes/uploadcsv
       Descripción: Carga datos de clientes desde un archivo CSV.
       Uso: Se utiliza para importar múltiples registros de clientes desde un archivo CSV.
       Formato del Archivo CSV: El archivo debe contener las columnas: nombre, apellidos, edad, email, telefono, direccion, documento, tipo_documento.
       Respuesta Exitosa (200 OK): Retorna una lista de registros de clientes creados a partir del archivo CSV en formato JSON.
       Respuesta de Error: Retorna un mensaje de error con el código de estado correspondiente si hay problemas al procesar el archivo CSV.
 
-# Buenas Prácticas y Patrones de Diseño Implementados
+## Buenas Prácticas y Patrones de Diseño Implementados
 
     Arquitectura de Capas: Se ha utilizado una arquitectura basada en capas separando la lógica de negocio, la capa de acceso a datos y la presentación (frontend).
 
@@ -94,7 +94,7 @@ json
 
     Seguridad: Se implementa seguridad a nivel de endpoints utilizando atributos de autorización y roles de usuario para proteger las operaciones sensibles como modificar o eliminar datos.
 
-# Instrucciones para Configurar y Ejecutar la Aplicación
+## Instrucciones para Configurar y Ejecutar la Aplicación
 
 Para ejecutar la aplicación, sigue estos pasos:
 
@@ -114,7 +114,7 @@ Para ejecutar la aplicación, sigue estos pasos:
         Asegúrate de tener un servidor SQL Server instalado y disponible.
         Ejecuta las migraciones para crear la estructura de la base de datos utilizando Entity Framework Core.
 
-# Instrucciones para Ejecutar las Pruebas Unitarias
+## Instrucciones para Ejecutar las Pruebas Unitarias
 
 Para ejecutar las pruebas unitarias, sigue estos pasos:
 
