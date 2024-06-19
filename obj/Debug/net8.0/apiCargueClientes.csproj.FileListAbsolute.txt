@@ -69,3 +69,4 @@ C:\Users\stilpz\Desktop\helppeople\pruebaTecnicaFullStack\apiCargueClientes\apiC
 C:\Users\stilpz\Desktop\helppeople\pruebaTecnicaFullStack\apiCargueClientes\apiCargueClientes\obj\Debug\net8.0\apiCargueClientes.genruntimeconfig.cache
 C:\Users\stilpz\Desktop\helppeople\pruebaTecnicaFullStack\apiCargueClientes\apiCargueClientes\obj\Debug\net8.0\ref\apiCargueClientes.dll
 C:\Users\stilpz\Desktop\helppeople\pruebaTecnicaFullStack\apiCargueClientes\apiCargueClientes\bin\Debug\net8.0\CsvHelper.dll
+C:\Users\stilpz\Desktop\helppeople\pruebaTecnicaFullStack\apiCargueClientes\apiCargueClientes\obj\Debug\net8.0\apiCargueClientes.sourcelink.json

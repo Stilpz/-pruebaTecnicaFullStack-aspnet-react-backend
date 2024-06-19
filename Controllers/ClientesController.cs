@@ -26,7 +26,7 @@ namespace apiCargueClientes.Controllers
         }
 
         // GET: api/<ClientesController>
-        /*[HttpGet]
+        [HttpGet]
         public ActionResult Get([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {
             try
@@ -42,8 +42,8 @@ namespace apiCargueClientes.Controllers
             {
                 return BadRequest($"Error al obtener clientes: {ex.Message}");
             }
-        }*/
-
+        }
+        /*
         [HttpGet]
         public ActionResult Get()
         {
@@ -56,7 +56,7 @@ namespace apiCargueClientes.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
+        */
 
 
         // GET api/<ClientesController>/5
