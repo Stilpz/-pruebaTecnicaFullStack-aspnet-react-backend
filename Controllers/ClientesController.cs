@@ -182,6 +182,8 @@ namespace apiCargueClientes.Controllers
                 using (var reader = new StreamReader(file.OpenReadStream()))
                 {
                     var registros = new List<Cliente>();
+                    int registrosCreados = 0;
+
 
                     // Leer línea por línea
                     int lineNumber = 0;
@@ -214,14 +216,18 @@ namespace apiCargueClientes.Controllers
                             tipo_documento = values[7].Trim()
                         };
 
-                        registros.Add(cliente);
+                        //registros.Add(cliente);
+                        context.cliente.Add(cliente);
+                        context.SaveChanges();
+                        registrosCreados++;
                     }
 
                     // Guardar todos los registros en la base de datos
-                    context.cliente.AddRange(registros);
+                    /*context.cliente.AddRange(registros);
                     context.SaveChanges();
 
-                    return Ok(registros);
+                    return Ok(registros);*/
+                    return Ok(new { registrosCreados = registrosCreados });
                 }
             }
             catch (Exception ex)
